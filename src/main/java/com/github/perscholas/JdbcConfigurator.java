@@ -2,7 +2,7 @@ package com.github.perscholas;
 
 import com.github.perscholas.utils.DirectoryReference;
 import com.github.perscholas.utils.FileReader;
-import com.mysql.cj.jdbc.Driver;
+import org.mariadb.jdbc.Driver;
 
 import java.io.File;
 import java.sql.DriverManager;

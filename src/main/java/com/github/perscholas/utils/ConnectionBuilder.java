@@ -57,7 +57,7 @@ public class ConnectionBuilder {
             return DriverManager.getConnection(jdbcUrl, this.userName, this.userPass);
         } catch (SQLException e) {
             String errorMessage = String.format("Failed to connect to `%s`", jdbcUrl);
-            throw new Error(errorMessage, e);
+            throw new RuntimeException(errorMessage, e);
         }
     }
 
