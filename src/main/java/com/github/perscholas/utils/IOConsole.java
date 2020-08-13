@@ -1,5 +1,6 @@
 package com.github.perscholas.utils;
 
+import java.awt.*;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;

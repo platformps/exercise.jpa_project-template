@@ -6,15 +6,16 @@ import org.mariadb.jdbc.Driver;
 
 import java.io.File;
 import java.sql.DriverManager;
-/**
- * Created by leon on 2/18/2020.
- */
+import java.sql.SQLException;
+import java.util.Arrays;
+
 public class JdbcConfigurator {
     static {
+        // Attempt to register JDBC Driver
         try {
             DriverManager.registerDriver(Driver.class.newInstance());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (InstantiationException | IllegalAccessException | SQLException e1) {
+            throw new Error(e1);
         }
     }
 
@@ -24,8 +25,10 @@ public class JdbcConfigurator {
         dbc.drop();
         dbc.create();
         dbc.use();
-        executeSqlFile("person.create-table.sql");
-        executeSqlFile("person.populate-table.sql");
+        executeSqlFile("courses.create-table.sql");
+        executeSqlFile("courses.populate-table.sql");
+        executeSqlFile("students.create-table.sql");
+        executeSqlFile("students.populate-table.sql");
     }
 
     private static void executeSqlFile(String fileName) {

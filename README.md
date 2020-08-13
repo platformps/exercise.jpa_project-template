@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AD - SBA - Core Java/JPA/JUnit 
 
 * **Objective** 
@@ -62,13 +61,13 @@
     * Column Data-Type: `varchar(50) not null`
     * Column Description: provides the name of the instructor
 
-* **NOTE**: Place the `CREATE` statement in the respective [sql file location](src/main/resources/person.create-table.sql).
+* **NOTE**: Place the `CREATE` statement in the respective [sql file location](./src/main/resources/courses.create-table.sql).
 
 
 ### Part 1B - Populating tables
 * insert test/dummy rows in Table 1 and Table 2 using SQL statements.
 * Necessary SQL statements for populating the table can be in the [resources directory](./src/main/resources) of this project.
-    * [courses.populate-table.sql](src/main/resources/person.populate-table.sql)
+    * [courses.populate-table.sql](./src/main/resources/courses.populate-table.sql)
     * [students.populate-table.sql](./src/main/resources/students.populate-table.sql)
     
     
@@ -136,20 +135,12 @@
         * registers the student to the course whose `id` is the specified integer value
     * `logout`
         * terminates the application
-=======
-# JPA Project Template
->>>>>>> c433fde848d66cf6ce000f9874a095f1744d3f51
-
-* **Objective** - To create a product...
-* **Purpose** - To gain familiarity the following features...
 
 
 
 
-## Objective
 
-#### Part 1 - ...
-* Ensure that all test cases in `com.github.perscholas_edu` pass with 100% success rate. 
+
 
 
 

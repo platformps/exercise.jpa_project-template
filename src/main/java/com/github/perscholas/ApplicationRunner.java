@@ -1,37 +1,15 @@
 package com.github.perscholas;
 
-import com.github.perscholas.utils.IOConsole;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.StringJoiner;
-/**
- * Created by leon on 2/18/2020.
- */
+
 public class ApplicationRunner implements Runnable {
-    private static final IOConsole console = new IOConsole();
 
     @Override
     public void run() {
-        JdbcConfigurator.initialize();
         DatabaseConnection dbConnection = DatabaseConnection.PRODUCTION_DATABASE;
-        dbConnection.drop();
-        dbConnection.create();
-        dbConnection.use();
-        dbConnection.executeStatement(new StringBuilder()
-                .append("CREATE TABLE IF NOT EXISTS databaseName.pokemonTable(")
-                .append("id int auto_increment primary key,")
-                .append("name text not null,")
-                .append("primary_type int not null,")
-                .append("secondary_type int null);").toString());
-
-        dbConnection.executeStatement(new StringBuilder()
-                .append("INSERT INTO databaseName.pokemonTable ")
-                .append("(id, name, primary_type, secondary_type)")
-                .append(" VALUES (12, 'Ivysaur', 3, 7);").toString());
-
-        String query = "SELECT * FROM databaseName.pokemonTable;";
-        ResultSet rs = dbConnection.executeQuery(query);
+        ResultSet rs = dbConnection.executeQuery("SELECT * FROM production_database.person;");
         printResults(rs);
     }
 

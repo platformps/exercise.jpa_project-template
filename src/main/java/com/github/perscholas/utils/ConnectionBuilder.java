@@ -3,10 +3,13 @@ package com.github.perscholas.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by leon on 3/13/18.
  */
+
 public class ConnectionBuilder {
     private Integer portNumber;
     private String userName;
@@ -53,15 +56,17 @@ public class ConnectionBuilder {
 
     public Connection build() {
         String jdbcUrl = this.toString();
+
         try {
-            return DriverManager.getConnection(jdbcUrl, this.userName, this.userPass);
+            Connection connection = DriverManager.getConnection(jdbcUrl, this.userName, this.userPass);
+            return connection;
         } catch (SQLException e) {
-            String errorMessage = String.format("Failed to connect to `%s`", jdbcUrl);
-            throw new RuntimeException(errorMessage, e);
+            String errorMessage = "Failed to connect to `%s` using\n\tUsername: %s\n\tPassword: %s";
+            throw new Error(String.format(errorMessage, jdbcUrl, userName, userPass), e);
         }
     }
 
-    @Override
+
     public String toString() {
         Boolean isHostNull = this.hostName == null;
         Boolean isPortNull = portNumber == null;

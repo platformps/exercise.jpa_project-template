@@ -1,0 +1,10 @@
+INSERT INTO courses (id, name, instructor) VALUES (1, 'English', 'Anderea Scamaden');
+INSERT INTO courses (id, name, instructor) VALUES (2, 'Mathematics', 'Eustace Niemetz');
+INSERT INTO courses (id, name, instructor) VALUES (3, 'Anatomy', 'Reynolds Pastor');
+INSERT INTO courses (id, name, instructor) VALUES (4, 'Organic Chemistry', 'Odessa Belcher');
+INSERT INTO courses (id, name, instructor) VALUES (5, 'Physics', 'Dani Swallow');
+INSERT INTO courses (id, name, instructor) VALUES (6, 'Digital Logic', 'Glenden Reilingen');
+INSERT INTO courses (id, name, instructor) VALUES (7, 'Object Oriented Programming','Giselle Ardy');
+INSERT INTO courses (id, name, instructor) VALUES (8, 'Data Structures', 'Carolan Stoller');
+INSERT INTO courses (id, name, instructor) VALUES (9, 'Politics', 'Carmita De Maine');
+INSERT INTO courses (id, name, instructor) VALUES (10, 'Art', 'Kingsly Doxsey');
