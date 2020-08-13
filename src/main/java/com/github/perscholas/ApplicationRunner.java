@@ -3,7 +3,9 @@ package com.github.perscholas;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.StringJoiner;
-
+/**
+ * Created by leon on 8/13/2020.
+ */
 public class ApplicationRunner implements Runnable {
 
     @Override

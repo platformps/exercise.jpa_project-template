@@ -8,7 +8,9 @@ import java.io.File;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
-
+/**
+ * Created by leon on 8/13/2020.
+ */
 public class JdbcConfigurator {
     static {
         // Attempt to register JDBC Driver
