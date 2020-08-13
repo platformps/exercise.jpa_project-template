@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AD - SBA - Core Java/JPA/JUnit 
 
 * **Objective** 
@@ -135,12 +136,20 @@
         * registers the student to the course whose `id` is the specified integer value
     * `logout`
         * terminates the application
+=======
+# JPA Project Template
+>>>>>>> c433fde848d66cf6ce000f9874a095f1744d3f51
+
+* **Objective** - To create a product...
+* **Purpose** - To gain familiarity the following features...
 
 
 
 
+## Objective
 
-
+#### Part 1 - ...
+* Ensure that all test cases in `com.github.perscholas_edu` pass with 100% success rate. 
 
 
 
