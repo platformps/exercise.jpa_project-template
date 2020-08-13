@@ -20,7 +20,7 @@ public class ApplicationRunner implements Runnable {
                 String secondColumnData = resultSet.getString(2);
                 String thirdColumnData = resultSet.getString(3);
                 System.out.println(new StringJoiner("\n")
-                        .add("Row number = " + rowNumber.toString())
+                        .add("\nRow number = " + rowNumber.toString())
                         .add("First Column = " + firstColumnData)
                         .add("Second Column = " + secondColumnData)
                         .add("Third column = " + thirdColumnData)
