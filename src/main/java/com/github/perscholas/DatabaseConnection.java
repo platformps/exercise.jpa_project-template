@@ -69,15 +69,15 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
 
     @Override
     public void executeStatement(String sqlStatement) {
-        console.println("Attempting to execute query:\n\t%s", sqlStatement);
+        console.println("Attempting to execute statement:\n\t%s", sqlStatement);
         Statement statement = getScrollableStatement();
         try {
             statement.execute(sqlStatement);
         } catch (SQLException e) {
-            console.println("Unsuccessfully executed query:\n\t%s", sqlStatement);
+            console.println("Unsuccessfully executed statement:\n\t%s", sqlStatement);
             throw new RuntimeException(e);
         }
-        console.println("Successfully executed query:\n\t%s", sqlStatement);
+        console.println("Successfully executed statement:\n\t%s", sqlStatement);
     }
 
     @Override
@@ -102,7 +102,7 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
         try {
             return getDatabaseConnection().createStatement(resultSetType, resultSetConcurrency);
         } catch (SQLException e) {
-            throw new Error(e);
+            throw new RuntimeException(e);
         }
     }
 }
