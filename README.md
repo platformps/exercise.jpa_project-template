@@ -61,13 +61,13 @@
     * Column Data-Type: `varchar(50) not null`
     * Column Description: provides the name of the instructor
 
-* **NOTE**: Place the `CREATE` statement in the respective [sql file location](./src/main/resources/courses.create-table.sql).
+* **NOTE**: Place the `CREATE` statement in the respective [sql file location](src/main/resources/person.create-table.sql).
 
 
 ### Part 1B - Populating tables
 * insert test/dummy rows in Table 1 and Table 2 using SQL statements.
 * Necessary SQL statements for populating the table can be in the [resources directory](./src/main/resources) of this project.
-    * [courses.populate-table.sql](./src/main/resources/courses.populate-table.sql)
+    * [courses.populate-table.sql](src/main/resources/person.populate-table.sql)
     * [students.populate-table.sql](./src/main/resources/students.populate-table.sql)
     
     

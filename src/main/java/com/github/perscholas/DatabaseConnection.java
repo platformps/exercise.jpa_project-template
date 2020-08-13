@@ -5,13 +5,15 @@ import com.github.perscholas.utils.IOConsole;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by leon on 2/18/2020.
  */
 public enum DatabaseConnection implements DatabaseConnectionInterface {
-    MANAGEMENT_SYSTEM,
-    UAT;
+    PRODUCTION_DATABASE,
+    TESTING_DATABASE;
 
     private static final IOConsole console = new IOConsole(IOConsole.AnsiColor.CYAN);
     private final ConnectionBuilder connectionBuilder;
@@ -25,7 +27,7 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
                 .setUser("root")
                 .setPassword("")
                 .setPort(3306)
-                .setDatabaseVendor("mariadb")
+                .setDatabaseVendor("mysql")
                 .setHost("127.0.0.1"));
     }
 
@@ -48,34 +50,59 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
 
     @Override
     public void create() {
-        String sqlStatement = null; // TODO - define statement
-        String info;
         try {
-            // TODO - execute `CREATE` statement
-            info = "Successfully executed statement `%s`.";
+            executeStatement("CREATE DATABASE IF NOT EXISTS " + getDatabaseName() + ";");
         } catch (Exception sqlException) {
-            info = "Failed to executed statement `%s`.";
+            throw new RuntimeException(sqlException);
         }
-        console.println(info, sqlStatement);
     }
 
     @Override
     public void drop() {
-        // TODO - execute `DROP` statement
+        executeStatement("DROP DATABASE IF EXISTS " + getDatabaseName() + ";");
     }
 
     @Override
     public void use() {
-        // TODO - execute `USE` statement
+        executeStatement("USE DATABASE " + getDatabaseName() + ";");
     }
 
     @Override
     public void executeStatement(String sqlStatement) {
-        // TODO - execute `sqlStatement` statement
+        console.println("Attempting to execute query:\n\t%s", sqlStatement);
+        Statement statement = getScrollableStatement();
+        try {
+            statement.execute(sqlStatement);
+        } catch (SQLException e) {
+            console.println("Unsuccessfully executed query:\n\t%s", sqlStatement);
+            throw new RuntimeException(e);
+        }
+        console.println("Successfully executed query:\n\t%s", sqlStatement);
     }
 
     @Override
     public ResultSet executeQuery(String sqlQuery) {
-        return null; // TODO - execute `sqlQuery` and return ResultSet
+        console.println("Attempting to execute query:\n\t%s", sqlQuery);
+        Statement statement = getScrollableStatement();
+        ResultSet rs;
+        try {
+            rs = statement.executeQuery(sqlQuery);
+        } catch (SQLException e) {
+            console.println("Unsuccessfully executed query:\n\t%s", sqlQuery);
+            throw new RuntimeException(e);
+        }
+        console.println("Successfully executed query:\n\t%s", sqlQuery);
+        return rs;
+    }
+
+
+    private Statement getScrollableStatement() {
+        int resultSetType = ResultSet.TYPE_SCROLL_INSENSITIVE;
+        int resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
+        try {
+            return getDatabaseConnection().createStatement(resultSetType, resultSetConcurrency);
+        } catch (SQLException e) {
+            throw new Error(e);
+        }
     }
 }
