@@ -44,7 +44,7 @@
     * Column Description: Student's password used to log in
 
 
-* **NOTE**: Place the `CREATE` statement in the respective [sql file location](./src/main/resources/students.create-table.sql).
+* **NOTE**: Place the `CREATE` statement in the respective [sql file location](src/main/resources/person.create-table.sql).
     
     
 #### Table 2 – Course
@@ -68,7 +68,7 @@
 * insert test/dummy rows in Table 1 and Table 2 using SQL statements.
 * Necessary SQL statements for populating the table can be in the [resources directory](./src/main/resources) of this project.
     * [courses.populate-table.sql](./src/main/resources/courses.populate-table.sql)
-    * [students.populate-table.sql](./src/main/resources/students.populate-table.sql)
+    * [students.populate-table.sql](src/main/resources/person.populate-table.sql)
     
     
 

@@ -7,7 +7,7 @@ import org.mariadb.jdbc.Driver;
 import java.io.File;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Arrays;
+
 /**
  * Created by leon on 8/13/2020.
  */
@@ -27,10 +27,8 @@ public class JdbcConfigurator {
         dbc.drop();
         dbc.create();
         dbc.use();
-        executeSqlFile("courses.create-table.sql");
-        executeSqlFile("courses.populate-table.sql");
-        executeSqlFile("students.create-table.sql");
-        executeSqlFile("students.populate-table.sql");
+        executeSqlFile("person.create-table.sql");
+        executeSqlFile("person.populate-table.sql");
     }
 
     private static void executeSqlFile(String fileName) {
